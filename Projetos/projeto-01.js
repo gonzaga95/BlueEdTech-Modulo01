@@ -39,14 +39,19 @@ for (let i = 0; i < perguntas.length; i++) {
 console.log(`${quantidadeSim} de 5`)
 console.log()
 
-if (quantidadeSim == 5) {
-    console.log(`Uau! Você completou tudo e está pronto para seguir a sua jornada!`)
-} else if (quantidadeSim == 4) {
-    console.log(`Você está preparado, mas seria importante cumprir todos os desafios para seguir detonando!`)
-} else if (quantidadeSim == 3) {
-    console.log(`Quase lá! Complete mais uma missão para seguir a jornada.`)
-} else if (quantidadeSim >= 1) {
-    console.log(`Você apenas começou e deve cumprir mais missões para avançar.`)
-} else {
-    console.log(`Ainda não deu o pontapé inicial, não é? Força na peruca e não fique para trás!`)
+switch (quantidadeSim) {
+    case 5:
+        console.log(`Uau! Você completou tudo e está pronto para seguir a sua jornada!`);
+        break;
+    case 4:
+        console.log(`Você está preparado, mas seria importante cumprir todos os desafios para seguir detonando!`);
+        break;
+    case 3:
+        console.log(`Quase lá! Complete mais uma missão para seguir a jornada.`);
+        break;
+    case 2: case 1:
+        console.log(`Você apenas começou e deve cumprir mais missões para avançar.`);
+        break;
+    default:
+        console.log(`Ainda não deu o pontapé inicial, não é? Força na peruca e não fique para trás!`)
 }
