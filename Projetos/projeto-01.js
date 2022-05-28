@@ -29,7 +29,8 @@ const perguntas = [
 let quantidadeSim = 0
 
 for (let i = 0; i < perguntas.length; i++) {
-    let respostas = prompt(perguntas[i]).toUpperCase()
+    console.log(perguntas[i])
+    let respostas = prompt('').toUpperCase()
     if (respostas == "S") {
         quantidadeSim++
     }
