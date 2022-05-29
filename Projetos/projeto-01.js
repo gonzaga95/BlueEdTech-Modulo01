@@ -11,6 +11,7 @@ console.log("No entanto, nada é impossível para quem está determinado e tem a
 console.log("Para suas aventuras nos estudos, é muito importante completar todos os desafios propostos. Assim, teremos certeza que estará pronto para começar a navegar na imensidão do mercado de trabalho de tecnologia.")
 console.log()
 console.log("Vamos checar se você aproveitou os seus estudos no Módulo 0?")
+prompt()
 console.log()
 console.log("Para saber o seu aproveitamento e se deve seguir a jornada, vamos fazer 05 perguntas de respostas sim ou não.")
 console.log()
@@ -31,6 +32,12 @@ let quantidadeSim = 0
 for (let i = 0; i < perguntas.length; i++) {
     console.log(perguntas[i])
     let respostas = prompt('').toUpperCase()
+    while (respostas != 'S' && respostas != 'N') {
+        console.log('Responda S para SIM')
+        console.log('Responda N para NÃO')
+        console.log(perguntas[i])
+        respostas = prompt('').toUpperCase()
+    }
     if (respostas == "S") {
         quantidadeSim++
     }
