@@ -24,6 +24,12 @@ let numeroDeSim = 0;
 for (let i = 0; i < questionario.length; i++) {
     console.log(questionario[i]);
     let respostas = prompt('').toUpperCase();
+    while (respostas != "S" && respostas != 'N') {
+        console.log("Responda S para SIM");
+        console.log("Responda N para NÃO");
+        console.log(questionario[i]);
+        respostas = prompt('').toUpperCase();
+    }
     if (respostas == "S") {
         numeroDeSim++
     }
