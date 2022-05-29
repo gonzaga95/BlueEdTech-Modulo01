@@ -22,7 +22,8 @@ const questionario = [
 let numeroDeSim = 0;
 
 for (let i = 0; i < questionario.length; i++) {
-    let respostas = prompt(questionario[i]).toUpperCase();
+    console.log(questionario[i]);
+    let respostas = prompt('').toUpperCase();
     if (respostas == "S") {
         numeroDeSim++
     }
