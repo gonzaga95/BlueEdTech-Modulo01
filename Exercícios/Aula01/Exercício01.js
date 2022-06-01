@@ -8,6 +8,6 @@ let notaB = +prompt('Insira a segunda nota: ')
 let pesoA = 4
 let pesoB = 6
 
-notaMedia = (notaA*pesoA + notaB*pesoB) / (pesoA+pesoB)
+let notaMedia = (notaA*pesoA + notaB*pesoB) / (pesoA+pesoB)
 
 console.log(`A média ponderada do aluno é ${notaMedia.toFixed(1)}`)
