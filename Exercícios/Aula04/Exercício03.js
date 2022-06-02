@@ -15,8 +15,12 @@ let saque;
 let notas = [100, 50, 10, 5, 1];
 
 saque = +prompt('Qual valor deseja sacar? ');
-while (saque < 10 || saque > 600){
-    console.log('O mínimo para saque é R$ 10 e o limite é R$ 600')
+while (isNaN(saque) || saque < 10 || saque > 600){
+    if (isNaN(saque)) {
+        console.log('Digite um valor numérico entre R$ 10 e R$ 600');
+    } else {
+    console.log('O mínimo para saque é R$ 10 e o limite é R$ 600');
+    }
     saque = +prompt('');
 }
 console.log('O seu saque foi de: ')
