@@ -5,6 +5,9 @@ const prompt = require("prompt-sync")();
 // A senha deve ter no mínimo 8 caracteres, pelo menos um número e um caracter especial.
 
 let padrao = /^(?=.*[@!#$%^&*()/\\])(?=.*[0-9])(?=.*[a-zA-Z])[@!#$%^&*()/\\a-zA-Z0-9]{8,}$/;
+// Salvem o Stackoverflow
+// https://pt.stackoverflow.com/questions/342605/verificar-a-exist%C3%AAncia-de-caracteres-especiais-em-uma-string-utilizando-regexp
+
 console.log('Cadastro de usuário e senha');
 
 prompt('Insira um nome de usuario: ');
@@ -14,4 +17,4 @@ while (!(padrao.test(senha))){
     senha = prompt('Cadastre uma senha: ');
 }
 console.clear()
-console.log('Senha cadastrada. Obrigado!')
+console.log('Senha cadastrada. Obrigado!');
