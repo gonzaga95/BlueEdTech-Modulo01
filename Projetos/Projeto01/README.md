@@ -9,10 +9,10 @@ Você deve criar um programa que faça 5 perguntas para o usuário e, dependendo
 
 No final, o programa deve fazer uma contagem de quantas respostas foram Sim, e exibir o resultado de acordo com esse número:
 
-. 0 respostas Sim: Você falha miseravelmente.
-. 1 ou 2 respostas Sim: Você falha, mas ainda consegue fugir da situação.
-. 3 respostas Sim: Você chega perto de conseguir alcançar seu objetivo, mas acaba falhando por pouco.
-. 4 respostas Sim: Depois de muito esforço você conquista seu objetivo, embora não de maneira perfeita.
-. 5 respostas Sim: Você triunfa de maneira inquestionável e seus feitos serão lembrados por muitas gerações.
+> 0 respostas Sim: Você falha miseravelmente.
+> 1 ou 2 respostas Sim: Você falha, mas ainda consegue fugir da situação.
+> 3 respostas Sim: Você chega perto de conseguir alcançar seu objetivo, mas acaba falhando por pouco.
+> 4 respostas Sim: Depois de muito esforço você conquista seu objetivo, embora não de maneira perfeita.
+> 5 respostas Sim: Você triunfa de maneira inquestionável e seus feitos serão lembrados por muitas gerações.
 
 O programa deve contar a história inicial (background), fazer as perguntas, e ao final, exibir o resultado de acordo com as situações acima.
