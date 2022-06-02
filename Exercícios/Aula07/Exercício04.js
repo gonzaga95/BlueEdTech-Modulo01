@@ -13,7 +13,7 @@ console.log('Cadastro de usuário e senha');
 prompt('Insira um nome de usuario: ');
 let senha = prompt('Cadastre uma senha: ');
 while (!(padrao.test(senha))){
-    console.log('Sua senha deve ter pelo menos um número e um caracter especial (@!#$%^&*()/\\)')
+    console.log('Sua senha deve ter pelo menos 8 dígitos, um número e um caracter especial (@!#$%^&*()/\\)')
     senha = prompt('Cadastre uma senha: ');
 }
 console.clear()
