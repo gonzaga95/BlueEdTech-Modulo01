@@ -1,4 +1,6 @@
-// // Faça um Programa que leia 20 números inteiros e armazene-os num array. Armazene os números pares no array PAR e os números IMPARES no array IMPAR. Imprima os três vetores.
+// // Faça um Programa que leia 20 números inteiros e armazene-os num array. 
+// Armazene os números pares no array PAR e os números IMPARES no array IMPAR. 
+// Imprima os três vetores.
 
 let array = [];
 let arrayPar = [];
@@ -13,5 +15,12 @@ for (let i = 1; i <= 20; i++) {
         arrayImpar.push(numero);
     }
 }
-console.log(array, arrayImpar, arrayPar);
+console.log(`A lista de todos os números é: 
+${array}
+
+A lista dos números ímpares é:
+${arrayImpar}
+
+A lista dos números pares é:
+${arrayPar}`);
 console.log();
