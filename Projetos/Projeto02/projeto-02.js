@@ -15,9 +15,13 @@ while (continuar == 'S') {
     "PAPEL", 
     "TESOURA"
   ];
-  let tentativas = +prompt("Escolha o número de tentativas: ");
-  while (isNaN(tentativas)){
-    tentativas = +prompt("Escolha o NÚMERO de tentativas: ");
+  let tentativas = parseInt(prompt("Escolha o número de tentativas: "));
+  while (isNaN(tentativas) || tentativas < 1){
+    if (!(isNaN(tentativas))) {
+      tentativas = parseInt(prompt("O número de tentativas deve ser maior que ZERO: "));
+    } else {
+    tentativas = parseInt(prompt("Escolha o NÚMERO de tentativas: "));
+    }
   }
 
   let vitoriasMinhas = 0;
