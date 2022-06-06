@@ -10,20 +10,40 @@ let quantidade = +prompt('Quantos nomes deseja inserir? ');
 while (isNaN(quantidade)) {
     quantidade = +prompt('Quantos nomes deseja inserir? ');
 }
-let nomes = [];
-let tamanho = [];
-// let iguais = [];
+const nomes = [];
+let tamanhoNomeMaior;
+let maioresNomes = [];
+
+let tamanhoNomeMenor;
+let menoresNomes = [];
 
 for (let i = 0; i < quantidade; i++){
-    nomes.unshift(prompt('Insira um nome: '));
-    tamanho.unshift(nomes[0].length);
+    nomes.push(prompt(`Insira o nome: `));
+    if (tamanhoNomeMaior === undefined || tamanhoNomeMaior <= nomes[i].length){
+        if (tamanhoNomeMaior < nomes[i].length){
+            maioresNomes = [];
+        }
+        tamanhoNomeMaior = nomes[i].length;
+        maioresNomes.push(nomes[i]);
+    }
+    if (tamanhoNomeMenor === undefined || tamanhoNomeMenor >= nomes[i].length){
+        if (tamanhoNomeMenor > nomes[i].length){
+            menoresNomes = [];
+        }
+        tamanhoNomeMenor = nomes[i].length;
+        menoresNomes.push(nomes[i]);
+    }
 }
-
+nomes.reverse();
 console.clear();
 console.log(`Os nomes inseridos foram: ${nomes.join(', ')}.`);
-console.log(`O maior nome é ${nomes[tamanho.indexOf(Math.max(...tamanho))]}.`);
-console.log(`O menor nome é ${nomes[tamanho.indexOf(Math.min(...tamanho))]}.`);
-
-// ///////////////////////////////////////////////////////////////////////////////
-// Não consegui adicionar uma condição para mostrar os nomes de tamanhos iguais //
-//////////////////////////////////////////////////////////////////////////////////
+if (maioresNomes.length > 1) {
+    console.log(`Os maiores nomes foram: ${maioresNomes.join(', ')}`)
+} else {
+    console.log(`O maior nome foi: ${maioresNomes}`)
+}
+if (menoresNomes.length > 1) {
+    console.log(`Os menor nomes foram: ${menoresNomes.join(', ')}`)
+} else {
+    console.log(`O menor nome foi: ${menoresNomes}`)
+}
