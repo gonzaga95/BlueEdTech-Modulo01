@@ -6,6 +6,10 @@ const prompt = require('prompt-sync')();
 // Use o laço FOR.
 
 let numero = +prompt('Insira um número: ');
+while (isNaN(numero)){
+    console.log('Você não digitou um número.');
+    numero = +prompt('Insira um número: ');
+}
 
 for (i = 0; i <= numero; i++){
     if (i % 2 == 0){

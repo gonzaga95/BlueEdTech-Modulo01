@@ -20,7 +20,7 @@ for (let i = 0; i < quantidadeAlunos; i++){
     console.log();
 }
 
-let mediaNotas = somaNotas / quantidadeAlunos;
+const mediaNotas = somaNotas / quantidadeAlunos;
 
 for (let i = 0; i < quantidadeAlunos; i++){
     console.log(`${alunos[i].toUpperCase()} tirou nota ${notas[i]}`);

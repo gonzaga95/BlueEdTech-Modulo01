@@ -4,7 +4,7 @@ const prompt = require("prompt-sync")();
 // Faça um programa que simule um lançamento de dados. Lance o dado 100 vezes e armazene os resultados em um array. Depois, mostre quantas vezes cada valor foi conseguido.
 
 const lancamentos = [];
-let quantidadeLancamentos = 100;
+const quantidadeLancamentos = 100;
 let dado1 = 0;
 let dado2 = 0;
 let dado3 = 0;
