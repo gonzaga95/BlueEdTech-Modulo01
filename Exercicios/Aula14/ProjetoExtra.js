@@ -12,17 +12,30 @@ const prompt = require('prompt-sync')();
 
 let rodadas = +prompt('Quantas rodadas serão disputadas? ');
 let quantidadeJogadores = +prompt('Quantos jogadores participarão? ');
-let jogadores = [];
+const jogadores = [];
+
+for (let i = 1; i <= quantidadeJogadores; i++){
+    console.log(`Qual é o nome do ${i}º jogador? `);
+    let nome = prompt('');
+    let jogador = {
+        Nome: nome
+    }
+    jogadores.push(jogador);
+}
 
 function lancarDados() {
     dado = Math.ceil(Math.random() * 6);
     return dado;
 }
 
-for (let i = 0; i < rodadas; i++){
-    for (let a = 0; a < quantidadeJogadores; a++)
+for (let i = 1; i <= rodadas; i++){
+    console.log(`Rodada ${i}: `)
+    for (let rodada of jogadores){
+        rodada.dados = lancarDados();
+        console.log(`${(rodada.Nome).toUpperCase()} tirou ${rodada.dados}`);
+    }
+    console.log();
 }
 
-lancarDados();
-// console.log(lancarDados());
+console.log(jogadores);
 
