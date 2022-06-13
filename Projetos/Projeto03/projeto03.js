@@ -23,12 +23,12 @@ function limparTabueliro() {
 
 function novoJogo(){
     jogarNovamente = prompt('Deseja jogar novamente? [S/N] ').toUpperCase()
-    while (jogarNovamente.toUpperCase() != 'S' && jogarNovamente != 'N'){
+    while (jogarNovamente != 'S' && jogarNovamente != 'N'){
         console.log('Responda S para SIM');
         console.log('Responda N para NÃO');
         jogarNovamente = prompt('Deseja jogar novamente? [S/N] ').toUpperCase()
     }
-    if (jogarNovamente.toUpperCase() == 'S'){
+    if (jogarNovamente == 'S'){
         console.clear();
         return true;
     } else {
