@@ -22,11 +22,11 @@ function limparTabueliro() {
 }
 
 function novoJogo(){
-    jogarNovamente = prompt('Deseja jogar novamente? [S/N] ').toUpperCase()
+    jogarNovamente = prompt('Deseja jogar novamente? [S/N] ').toUpperCase();
     while (jogarNovamente != 'S' && jogarNovamente != 'N'){
         console.log('Responda S para SIM');
         console.log('Responda N para NÃO');
-        jogarNovamente = prompt('Deseja jogar novamente? [S/N] ').toUpperCase()
+        jogarNovamente = prompt('Deseja jogar novamente? [S/N] ').toUpperCase();
     }
     if (jogarNovamente == 'S'){
         console.clear();
@@ -42,11 +42,11 @@ function novoJogo(){
 
 function placarFinal(){
     if (vencedorX > vencedorO){
-        console.log("O player 'X' venceu!");
+        console.log("O player 'X' foi o campeão geral!");
     } else if (vencedorO > vencedorX){
-        console.log("O player 'O' venceu!");
+        console.log("O player 'O' foi o campeão geral!");
     } else {
-        console.log('Foi disputadíssimo e houve um empate!')
+        console.log('Foi disputadíssimo e houve um empate!');
     }
 }
 
@@ -69,7 +69,7 @@ while (jogarNovamente) {
     while (!resultado) {
         console.log("Popular 'Tic tac toe' em JavaScript");
         console.table(tabuleiro);
-        console.log(`É a vez do ${player}: `)
+        console.log(`É a vez do ${player}: `);
 
         let jogadaLinha = +prompt('Escolha a linha a marcar: ');
         while (jogadaLinha > 2) {
@@ -152,7 +152,7 @@ while (jogarNovamente) {
         console.clear();
     }
     console.clear();
-    console.log('Temos um resultado:')
+    console.log('Temos um resultado:');
     console.table(tabuleiro);
     
     if (resultado) {
