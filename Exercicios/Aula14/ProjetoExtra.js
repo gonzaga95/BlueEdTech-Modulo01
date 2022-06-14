@@ -13,9 +13,6 @@ const prompt = require('prompt-sync')();
 let rodadas = +prompt('Quantas rodadas serão disputadas? ');
 let quantidadeJogadores = +prompt('Quantos jogadores participarão? ');
 const jogadores = [];
-function maior(a, b){
-    return a - b;
-}
 
 for (let i = 1; i <= quantidadeJogadores; i++){
     console.log(`Qual é o nome do ${i}º jogador? `);
@@ -40,7 +37,10 @@ for (let i = 1; i <= rodadas; i++){
     console.log();
 }
 console.log(jogadores);
-// console.log(jogadores[0].dados, jogadores[1].dados);
-maior(jogadores[0].dados, jogadores[1].dados);
+// jogadores.sort((a,b) => {
+//     if (a.numero > b.numero) return -1
+//     if (b.numero > a.numero) return 1
+//     return 0
+// })
 console.log(jogadores);
 
