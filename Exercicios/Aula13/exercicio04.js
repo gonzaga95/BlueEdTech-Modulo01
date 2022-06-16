@@ -13,16 +13,16 @@ const prompt = require('prompt-sync')();
 const listaContatos = [];
 
 function checarTelefoneValido(){
-    let resposta = +prompt('Qual é telefone do novo contato? ');
+    let resposta = +prompt('');
     while (isNaN(resposta) || resposta.length < 9) {
         if (isNaN(resposta)){
-            console.log('Telefone inserido inválido.')
+            console.log('Telefone inserido inválido.');
             console.log('Você deve digitar apenas números: ');
-            resposta = +prompt('Qual é telefone do novo contato? ');
+            resposta = +prompt('Insira o número do telefone ');
         } else {
             console.log('Telefone inserido inválido.');
             console.log('O número de telefone deve conter 9 dígitos');
-            resposta = +prompt('Qual é telefone do novo contato? ');
+            resposta = +prompt('Insira o número do telefone ');
         }
     }
     return resposta;
@@ -30,6 +30,7 @@ function checarTelefoneValido(){
 
 function adicionarContato() {
     let nome = prompt('Qual é o nome do novo contato? ');
+    console.log('Qual é o telefone do novo contato?')
     let telefone = checarTelefoneValido();
     
     let novoContato = {
@@ -40,21 +41,42 @@ function adicionarContato() {
     listaContatos.push(novoContato);
 }
 
-// function alterarContato(a) {
-//     for (let nomes of listaContatos){
-//         if (nomes.nome == a) {
-                                   /* VERFICAR
-//             let indice = listaContatos.indexOf(nomes.nome); // retornando índice -1
-                                        */
-//             listaContatos[indice].telefone = checarTelefoneValido();
-//         }
-//     }
-// }
+function alterarContato(a) {
+    for (let nomes of listaContatos){
+        if (nomes.nome == a) {
+            let indice = listaContatos.indexOf(nomes);
+            // if (indice === -1) {
+            //     console.log('Nome não encontrado');
+            // } else {
+            console.log('Qual é novo número de telefone do contato? ');
+            listaContatos[indice].telefone = checarTelefoneValido();
+            // }
+        }
+    }
+}
 
-// function consultarContato(a) {
-//     for (let nome of listaContatos){
-//         if (listaContatos.nome == a) {
-//             console.log({listaContatos})
-//         }
-//     }
-// }
+function consultarContato(a) {
+    for (let contato of listaContatos){
+        if (listaContatos.nome == a) {
+            let indice = listaContatos.indexOf(contato);
+            // if (indice === -1) {
+            //     console.log('Nome não encontrado');
+            // } else {
+            console.log(contato[indice]);
+            // }
+        }
+    }
+}
+
+function deletarContato(a) {
+    for (let nomes of listaContatos){
+        if (listaContatos.nome == a) {
+            let indice = listaContatos.indexOf(nomes);
+            // if (indice === -1) {
+            //     console.log('Nome não encontrado');
+            // } else {
+            listaContatos.splice(indice, 1);
+            // }
+        }
+    }
+}
