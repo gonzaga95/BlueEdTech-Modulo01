@@ -22,7 +22,7 @@ function validaSim() {
 
 let mainCharacter = {
     nome: 'Julinho',
-    profissão: 'Piloto',
+    profissao: 'Piloto',
     peso: 59.1,
     ganharMassa: function(a = 0.1){
         if (this.peso < 75) {
@@ -35,6 +35,7 @@ let mainCharacter = {
         }
     },
     checaPeso: function(){
+        console.log(`Você está com ${this.peso} KG`);
         if (this.peso < 62){
             console.log('Frango!!');
             console.log('Tem que malhar mais, p**ra!');
@@ -44,16 +45,8 @@ let mainCharacter = {
         }
     },
     diaFeliz: 0,
-    refeicoes: 0, //Uma por turno - 0 a 3.
-    hidratacao: 0, //Um copo por turno - 0 a 3.
-    condicoesIdeais: 0, 
-    trabalhou: function(a) {
-        if (a = 'sim') {
-            return true;
-        } else {
-            return false;
-        }
-    },
+    refeicoes: 0,
+    hidratacao: 0,
 }
 
 function roteiros(){
@@ -77,6 +70,7 @@ const roteirosManha = [
 
 const roteirosTarde = [
     {roteiro: 'Que tarde bacana! Muitos clientes a serem transportados em sua van e a grana tá entrando. Você nem precisou se esforçar, não é maneiro?'},
+    {roteiro: 'Tarde de muito suor, hein? Nem chegamos na academia mas o dia parece que já teve 20 horas. Dias de luta e dias de luta, camarada...'},
     {roteiro: 'Hoje tá f****. Trânsito horrível, van não anda. Uma tarde perdida!! Não vemos a hora da noite chegar para aliviar o estresse com muitas repetições no treino.'}
 ]
 
@@ -88,7 +82,7 @@ const roteirosNoite = [
 
 const roteirosFds = [
     {roteiro: 'FDS chegou! Hoje você dormiu até tarde e tem a opção de como vai querer curtir o dia. Aproveite!!'},
-    {roteiro: 'FDS chegou e é dia de maratonar aquela lista de filmes que encotrou no livro "50 filmes para assistir enquanto dirige"... Mas vê se presta atenção no trânsito, hein?'},
+    {roteiro: 'FDS chegou e é dia de maratonar aquela lista de filmes que encontrou no livro "50 filmes para assistir enquanto dirige"... Mas vê se presta atenção no trânsito, hein?'},
     {roteiro: 'Apesar do FDS, você tá com algumas contas atrasadas e vai ter que trabalhar hoje. Dias de luta, amigo...'}
 ]
 
@@ -108,11 +102,28 @@ const turno = [
     'noite'
 ]
 
+console.log(`Essa é a vida do ${mainCharacter.nome}`);
+console.log(`Durante o dia você tenta ser o melhor ${mainCharacter.profissao} possível.`);
+console.log(`Já a noite, ${mainCharacter.nome} tem muita dedicação na academia.`);
+console.log('O objetivo é se tornar um bodybuilder fenomenal! Monstro! Gigante!');
+prompt();
+console.clear();
+
+console.log('Você precisa ter muito foco na dieta e na hidratação');
+console.log('O objetivo é, apesar dessa loucura que pode ser o seu dia a dia, pensar sempre no seu projeto');
+console.log(`Entre os períodos do dia, você vai precisar responder 'sim' ou 'não' durante as pausas`);
+console.log(`Caso opte por responder 'não', saiba que seu objetivo fica mais distante`);
+console.log('Ao final da semana você poderá conferir se evoluiu ou regrediu.');
+console.log('Também poderá decidir se quer ou não continuar na rotina da semana.');
+console.log('Vamos?');
+prompt('ENTER para começar');
+console.clear();
+
 while (repetir) {
     repeticoesSemana++;
+    mainCharacter.diaFeliz = 0;
 
     for (let dia of semana){
-        mainCharacter.diaFeliz = 0;
         mainCharacter.hidratacao = 0;
         mainCharacter.refeicoes = 0;
         let indice;
@@ -121,8 +132,11 @@ while (repetir) {
         if (dia == 'sábado' || dia == 'domingo') {
             indice = roteiros();
             console.log(`${roteirosFds[indice].roteiro}`);
+            prompt();
+            break;
         } else {
             for (let hora of turno){
+                console.log();
                 switch (hora) {
                     case 'manhã':
                         indice = roteiros();
@@ -139,7 +153,7 @@ while (repetir) {
                 }
                 prompt();
                 console.log(`Fim da ${hora}`);
-                console.log('Hora de repor as energias!!');
+                console.log('Hora de recompor as energias!!');
                 console.log('Deseja tomar água?');
                 let hidratar = validaSim();
                 if (hidratar == 'sim') {
@@ -152,47 +166,52 @@ while (repetir) {
                 }
             }
         }
+        console.clear();
         if (mainCharacter.refeicoes === 3 && mainCharacter.hidratacao === 3) {
-            console.log('Hoje você se alimentou bem e bebeu bastante água.');
+            console.log('Ontem você se alimentou bem e bebeu bastante água.');
             console.log('Foco no projeto bodybuilder!!');
             mainCharacter.diaFeliz += 2;
         } else if (mainCharacter.refeicoes === 2 || mainCharacter.hidratacao === 2) {
             if (mainCharacter.refeicoes === 2) {
-                console.log('Faltou comer direitinho');
+                console.log('Faltou comer direitinho no dia anterior');
                 console.log('Cadê o foco no projeto?');
             } else if (mainCharacter.hidratacao === 2) {
-                console.log('Faltou beber água, hein?');
+                console.log('Faltou beber água ontem, hein?');
                 console.log('Cadê o foco no projeto?');
             }
             mainCharacter.diaFeliz++;
         } else if (mainCharacter.refeicoes < 2 || mainCharacter.hidratacao < 2) {
-            console.log('É, hoje faltou equilíbrio na alimentação e hidratação.');
+            console.log('É, ontem faltou equilíbrio na alimentação e hidratação.');
             console.log('Desse jeito nosso projeto fica mais distante.');
         }
+        console.log();
     }
+
     prompt();
     console.clear();
-    if (mainCharacter.diaFeliz > 6) {
-        mainCharacter.ganharMassa(0.2);
-        console.log('Semana boa, hein!');
+    if (mainCharacter.diaFeliz > 4) {
+        if (mainCharacter.diaFeliz > 6) {
+            mainCharacter.ganharMassa(0.25);
+            console.log('Semana boa, hein!');
+        }
+        else {
+            mainCharacter.ganharMassa();
+            console.log('Devagar mas sempre! Bora ficar grande!');
+        }
         console.log('Você vai crescer pra caralho, p****!');
-    } else if (mainCharacter.diaFeliz > 4) {
-        mainCharacter.ganharMassa();
-        console.log('Devagar mas sempre! Bora ficar grande!');
     } else {
         mainCharacter.perderMassa();
         console.log('Essa semana foi difícil, não é?');
-        console.log('Você emagreceu um pouco, mas nada como uma próxima semana para tentar novamente...')
+        console.log('Você emagreceu um pouco, mas nada como uma próxima semana para tentar novamente...');
     }
 
-    // console.log(repeticoesSemana);
     prompt();
     console.clear();
     console.log('Mais uma longa semana chegou ao fim.');
     console.log('Deseja conferir os status do nosso bodybuilder?');
     let conferir = validaSim();
     if (conferir === 'sim') {
-        checaPeso();
+        mainCharacter.checaPeso();
     }
 
     console.log('Deseja experienciar outra semana rotineira do nosso bodybuilder? ');
