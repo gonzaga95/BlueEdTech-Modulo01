@@ -14,33 +14,35 @@ let rodadas = +prompt('Quantas rodadas serão disputadas? ');
 let quantidadeJogadores = +prompt('Quantos jogadores participarão? ');
 const jogadores = [];
 
+function lancarDados() {
+    dado = Math.ceil(Math.random() * 6);
+    return dado;
+}
+
 for (let i = 1; i <= quantidadeJogadores; i++){
     console.log(`Qual é o nome do ${i}º jogador? `);
     let nome = prompt('');
     let jogador = {
-        Nome: nome
+        nome: nome
+        // dados: lancarDados()
     }
     jogadores.push(jogador);
-}
-
-function lancarDados() {
-    dado = Math.ceil(Math.random() * 6);
-    return dado;
 }
 
 for (let i = 1; i <= rodadas; i++){
     console.log(`Rodada ${i}: `)
     for (let rodada of jogadores){
         rodada.dados = lancarDados();
-        console.log(`${(rodada.Nome).toUpperCase()} tirou ${rodada.dados}`);
+        console.log(`${(rodada.nome)} tirou ${rodada.dados}`);
+        prompt();
     }
     console.log();
 }
 console.log(jogadores);
 // jogadores.sort((a,b) => {
-//     if (a.numero > b.numero) return -1
-//     if (b.numero > a.numero) return 1
+//     if (a.dados > b.dados) return -1
+//     if (b.dados > a.dados) return 1
 //     return 0
 // })
-console.log(jogadores);
+// console.log(jogadores);
 
