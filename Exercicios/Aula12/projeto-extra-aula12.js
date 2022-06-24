@@ -21,12 +21,13 @@ const prompt = require("prompt-sync")();
 // Qual candidato venceu a votação
 
 let votacaoAberta = true;
+let permissao;
 
 let candidatos = [
-    ["Candidato 1", "número =>", 1],
-    ["Candidato 2", "número =>", 2],
-    ["Candidato 3", "número =>", 3],
-    ["Branco", "número =>", 4],
+    ["Candidato 1", 1],
+    ["Candidato 2", 2],
+    ["Candidato 3", 3],
+    ["Branco", 4],
 ];
 
 let candidato1 = 0;
@@ -74,11 +75,40 @@ function votacao(autorizacao, voto) {
     }
 }
 
+function exibirResultados(){
+    console.log(`O Candidato 1 teve ${candidato1} votos`);
+    console.log(`O Candidato 2 teve ${candidato2} votos`);
+    console.log(`O Candidato 3 teve ${candidato3} votos`);
+    console.log(`Tiveram ${votoBranco} votos em branco`);
+    console.log(`Tiveram ${votoAnulado} votos nulos`);
+    console.log();
+    if (candidato1 > candidato2 && candidato1 > candidato3){
+        console.log(`O Candidato 1 venceu a eleição`);
+    } else if (candidato2 > candidato1 && candidato2 > candidato3){
+        console.log(`O Candidato 2 venceu a eleição`);
+    } else if (candidato3 > candidato1 && candidato3 > candidato2){
+        console.log(`O Candidato 3 venceu a eleição`);
+    } else {
+        console.log('Houve um empate.');
+    }
+}
+
 while (votacaoAberta) {
+    console.log('Para votar, é necessário apresentar o seu ano de nascimento (AAAA)');
+    console.log('Em seguida, escolher uma opção');
+
+    let nascimento = +prompt('Insira seu ano de nascimento (AAAA): ');
+
     console.log(
         "Você tem a opção de tais canditatos, seguidos de seus respectivos números na urna"
     );
     console.table(candidatos);
+    console.log();
+    
+    let escolha = +prompt('Insira o seu voto: ');
+
+    autorizaVoto(nascimento);
+    votacao(permissao, escolha);
 
     while (true) {
         let continuar = prompt(
@@ -94,3 +124,6 @@ while (votacaoAberta) {
         console.log("Responda N para NÃO");
     }
 }
+
+exibirResultados();
+
