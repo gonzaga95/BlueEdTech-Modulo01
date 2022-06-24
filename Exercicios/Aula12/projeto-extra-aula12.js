@@ -22,6 +22,7 @@ const prompt = require("prompt-sync")();
 
 let votacaoAberta = true;
 let permissao;
+let nascimento = 0;
 
 let candidatos = [
     ["Candidato 1", 1],
@@ -75,7 +76,7 @@ function votacao(autorizacao, voto) {
     }
 }
 
-function exibirResultados(){
+function exibirResultados() {
     console.clear();
     console.log(`O Candidato 1 teve ${candidato1} votos`);
     console.log(`O Candidato 2 teve ${candidato2} votos`);
@@ -83,34 +84,43 @@ function exibirResultados(){
     console.log(`Tiveram ${votoBranco} votos em branco`);
     console.log(`Tiveram ${votoAnulado} votos nulos`);
     console.log();
-    if (candidato1 > candidato2 && candidato1 > candidato3){
+    if (candidato1 > candidato2 && candidato1 > candidato3) {
         console.log(`O Candidato 1 venceu a eleição`);
-    } else if (candidato2 > candidato1 && candidato2 > candidato3){
+    } else if (candidato2 > candidato1 && candidato2 > candidato3) {
         console.log(`O Candidato 2 venceu a eleição`);
-    } else if (candidato3 > candidato1 && candidato3 > candidato2){
+    } else if (candidato3 > candidato1 && candidato3 > candidato2) {
         console.log(`O Candidato 3 venceu a eleição`);
     } else {
-        console.log('Houve um empate.');
+        console.log("Houve um empate.");
     }
     console.log();
 }
 
 while (votacaoAberta) {
     console.clear();
-    console.log('Bem-vindo(a) ao sistema de votação');
-    console.log('Para votar, é necessário apresentar o seu ano de nascimento (AAAA)');
-    console.log('Em seguida, escolher uma opção');
+    console.log("Bem-vindo(a) ao sistema de votação");
+    console.log(
+        "Para votar, é necessário apresentar o seu ano de nascimento (AAAA)"
+    );
+    console.log("Em seguida, escolher uma opção");
     console.log();
 
-    let nascimento = +prompt('Insira seu ano de nascimento (AAAA): ');
+    while (true) {
+        nascimento = +prompt("Insira seu ano de nascimento (AAAA): ");
+        if (isNaN(nascimento) || nascimento.toString().length !== 4) {
+            console.log("Insira o ano do nascimento no formato AAAA");
+        } else {
+            break;
+        }
+    }
 
     console.log(
         "Você tem a opção de tais canditatos, seguidos de seus respectivos números na urna"
     );
     console.table(candidatos);
     console.log();
-    
-    let escolha = +prompt('Insira o seu voto: ');
+
+    let escolha = +prompt("Insira o seu voto: ");
 
     autorizaVoto(nascimento);
     votacao(permissao, escolha);
@@ -131,4 +141,3 @@ while (votacaoAberta) {
 }
 
 exibirResultados();
-
