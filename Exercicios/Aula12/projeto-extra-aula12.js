@@ -69,13 +69,14 @@ function votacao(autorizacao, voto) {
                 votoAnulado++;
                 break;
         }
-        console.log("Registrado");
+        console.log("Voto registrado");
     } else {
         console.log("Você não pode votar");
     }
 }
 
 function exibirResultados(){
+    console.clear();
     console.log(`O Candidato 1 teve ${candidato1} votos`);
     console.log(`O Candidato 2 teve ${candidato2} votos`);
     console.log(`O Candidato 3 teve ${candidato3} votos`);
@@ -91,11 +92,15 @@ function exibirResultados(){
     } else {
         console.log('Houve um empate.');
     }
+    console.log();
 }
 
 while (votacaoAberta) {
+    console.clear();
+    console.log('Bem-vindo(a) ao sistema de votação');
     console.log('Para votar, é necessário apresentar o seu ano de nascimento (AAAA)');
     console.log('Em seguida, escolher uma opção');
+    console.log();
 
     let nascimento = +prompt('Insira seu ano de nascimento (AAAA): ');
 
