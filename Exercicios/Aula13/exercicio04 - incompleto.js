@@ -80,3 +80,37 @@ function deletarContato(a) {
         }
     }
 }
+
+while (true) {
+    console.log("Bem-vinde a lista telefônica");
+    console.log("Você pode consultar, adicionar, alterar ou deletar contatos");
+    console.log("O que deseja fazer?");
+    let escolha = prompt("").toLowerCase();
+    
+    switch (escolha) {
+        case "consultar":
+            let consulta = prompt(
+                "Qual é o nome do contato que deseja consultar? "
+            );
+            consultarContato(consulta);
+            break;
+        case "adicionar":
+            adicionarContato();
+            break;
+        case "alterar":
+            let altera = prompt(
+                "Qual é o nome do contato que deseja alterar? "
+            );
+            alterarContato(altera);
+            break;
+        case "deletar":
+            let deleta = prompt(
+                "Qual é o nome do contato que deseja deletar? "
+            );
+            deletarContato(deleta);
+            break;
+        default:
+            console.error("Método inexistente.");
+            break;
+    }
+}
